@@ -4,6 +4,6 @@ test('main', () => {
   const result = Object.assign(target, src);
 
   // BEGIN
-  
+  expect(result).toEqual({k: 'v', a: 'a', b: 'b'})
   // END
 });
