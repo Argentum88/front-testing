@@ -4,10 +4,15 @@ module.exports = {
     "es2021": true,
     "jest": true
   },
-  "extends": ["eslint:recommended","airbnb"],
+  "extends": ["eslint:recommended","plugin:jest/recommended","airbnb"],
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
+  },
+  "settings": {
+    "jest": {
+      "version": 26
+    }
   },
   "rules": {
   }
