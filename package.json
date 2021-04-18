@@ -1,0 +1,27 @@
+{
+  "name": "frontend-testing-react",
+  "version": "1.0.0",
+  "description": "Работа над [домашними заданиями](https://www.notion.so/hexlet/780f724542b14ecb883a6ebf8ea6e54e) выполняется на компьютере студента. Мы подготовили для каждого задания наборы файлов, таких как README (текст задачи), тесты, линтер, файл зависимостей и файл для решения студента. Все эти файлы хранятся на нашем Gitlab, а утилита *Hexlet CLI* выступает интерфейсом для работы с этой системой.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/hexlethq/programs/frontend-testing-react/hexlet-groups/frontend-testing-react-14/179364.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/hexlethq/programs/frontend-testing-react/hexlet-groups/frontend-testing-react-14/179364/issues"
+  },
+  "homepage": "https://gitlab.com/hexlethq/programs/frontend-testing-react/hexlet-groups/frontend-testing-react-14/179364#readme"
+}

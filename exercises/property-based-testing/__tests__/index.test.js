@@ -8,9 +8,9 @@ test('test sort', () => {
     fc.property(
       fc.int8Array(),
       (arr) => {
-        expect(sort(arr)).toBeSorted()
-      }
-    )
+        expect(sort(arr)).toBeSorted();
+      },
+    ),
   );
 });
 // END
