@@ -11,9 +11,18 @@ const user = {
   age: 33,
 };
 
+beforeEach(() => {
+  nock.disableNetConnect();
+});
+
+afterEach(() => {
+  nock.cleanAll();
+  nock.enableNetConnect();
+});
+
 test('get', async () => {
   nock('https://example.com').get('/users').reply(200, user);
-  expect(await get('https://example.com/users')).toEqual(user);
+  expect(await get('https://example.com/users')).toMatchObject(user);
 });
 
 test('post', async () => {
