@@ -34,18 +34,22 @@ describe('it works', () => {
     await page.click('.container.mt-3 > a');
     expect(await page.$eval('h3', (el) => el.textContent)).toEqual('Create article');
 
-    // let a = await page.content();
     await page.type('#name', 'new post');
+    await page.select('select', '1');
     await page.type('#content', 'super post');
-    // let b = await page.content();
-
     await page.click('[type="submit"]');
-
-    // let c = await page.content();
-    /* expect(await page.$$eval(
+    expect(await page.$$eval(
       'tbody > tr > td',
-      (els) => els.find((el) => el.textContent === 'new post'))
-    ).toBeTruthy(); */
+      (els) => els.find((el) => el.textContent === 'new post'),
+    )).toBeTruthy();
+
+    await page.click('td > a');
+    await page.type('#name', 'edited ');
+    await page.click('[type="submit"]');
+    expect(await page.$$eval(
+      'tbody > tr > td',
+      (els) => els.find((el) => el.textContent.startsWith('edited')),
+    )).toBeTruthy();
   });
   // END
   afterAll(async () => {
