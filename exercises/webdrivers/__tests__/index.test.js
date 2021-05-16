@@ -29,15 +29,18 @@ describe('it works', () => {
     expect(await page.$('#title')).toBeTruthy();
 
     await page.click('a.nav-link');
+    await page.waitForSelector('h3');
     expect(await page.$eval('h3', (el) => el.textContent)).toEqual('Articles');
 
     await page.click('.container.mt-3 > a');
+    await page.waitForSelector('form');
     expect(await page.$eval('h3', (el) => el.textContent)).toEqual('Create article');
 
     await page.type('#name', 'new post');
     await page.select('select', '1');
     await page.type('#content', 'super post');
     await page.click('[type="submit"]');
+    await page.waitForSelector('tbody');
     expect(await page.$$eval(
       'tbody > tr > td',
       (els) => els.find((el) => el.textContent === 'new post'),
@@ -46,6 +49,7 @@ describe('it works', () => {
     await page.click('td > a');
     await page.type('#name', 'edited ');
     await page.click('[type="submit"]');
+    await page.waitForSelector('tbody');
     expect(await page.$$eval(
       'tbody > tr > td',
       (els) => els.find((el) => el.textContent.startsWith('edited')),
