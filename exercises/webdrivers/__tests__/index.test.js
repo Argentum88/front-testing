@@ -47,6 +47,7 @@ describe('it works', () => {
     )).toBeTruthy();
 
     await page.click('td > a');
+    await page.waitForSelector('form');
     await page.type('#name', 'edited ');
     await page.click('[type="submit"]');
     await page.waitForSelector('tbody');
