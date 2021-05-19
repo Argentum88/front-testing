@@ -41,17 +41,17 @@ describe('it works', () => {
     await page.type('#content', 'super post');
     await page.click('[type="submit"]');
     await page.waitForSelector('tbody');
-    let tds = await page.$$eval('tbody > tr > td', (els) => els.map((el) => el.textContent))
+    let tds = await page.$$eval('tbody > tr > td', (els) => els.map((el) => el.textContent));
     expect(tds).toContain('new post');
 
     await page.click('td > a');
     await page.waitForSelector('form');
     const input = await page.$('#name');
-    await input.click({ clickCount: 3 })
-    await input.type("edited");
+    await input.click({ clickCount: 3 });
+    await input.type('edited');
     await page.click('[type="submit"]');
     await page.waitForSelector('tbody');
-    tds = await page.$$eval('tbody > tr > td', (els) => els.map((el) => el.textContent))
+    tds = await page.$$eval('tbody > tr > td', (els) => els.map((el) => el.textContent));
     expect(tds).toContain('edited');
   });
   // END
