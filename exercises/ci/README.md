@@ -1,3 +1,4 @@
+![example workflow](https://github.com/Argentum88/test-workflow/actions/workflows/main.yml/badge.svg)
 # Unit-тестирование
 
 Используйте функцию `upVersion()`, которую мы написали ранее. Скопируйте её в этот проект, настройте для нее Github Actions с подсчетом Test Coverage и загрузкой отчёта на [codeclimate.com](https://codeclimate.com/).
