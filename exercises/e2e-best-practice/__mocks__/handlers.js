@@ -11,7 +11,7 @@ export default [
     tasks = [...tasks, task];
     return res(
       ctx.status(201),
-      ctx.json(task),
+      ctx.json([]),
     );
   }),
 
