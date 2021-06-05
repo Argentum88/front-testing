@@ -9,11 +9,12 @@ test('see button Add', async () => {
 });
 
 test('can add task and delete it', async () => {
-  await expect(page).toFillForm('form', { text: 'тыц' });
+  const text = 'тыц';
+  await expect(page).toFillForm('form', { text });
   await page.click('[data-testid=add-task-button]');
-  await expect(page).toMatch('тыц');
+  await expect(page).toMatch(text);
 
   await page.click('[data-testid=remove-task-1]');
-  await expect(page).not.toMatch('тыц');
+  await expect(page).not.toMatch(text);
 });
 // END
