@@ -13,4 +13,8 @@ test('can add tasks', async () => {
   await page.click('[data-testid=add-task-button]');
   await expect(page).toMatch('тыц');
 });
+
+test('see task again', async () => {
+  await expect(page).toMatch('тыц');
+});
 // END
