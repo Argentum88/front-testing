@@ -16,31 +16,32 @@ beforeAll(() => {
 
 // BEGIN
 test('main', async () => {
-  nock(host).get('/countries?term=a').reply(200, ['Albania', 'Algeria', 'Armenia']);
-  nock(host).get('/countries?term=al').reply(200, ['Albania', 'Algeria']);
-  nock(host).get('/countries?term=alb').reply(200, ['Albania']);
+  nock(host).get('/countries').query({ term: 'a' }).reply(200, ['Albania', 'Algeria', 'Armenia']);
+  nock(host).get('/countries').query({ term: 'al' }).reply(200, ['Albania', 'Algeria']);
+  nock(host).get('/countries').query({ term: 'alb' }).reply(200, ['Albania']);
   const { queryByText, getByRole } = render(<Autocomplete />);
-  userEvent.type(getByRole('textbox'), 'a');
+  const searchInput = getByRole('textbox');
+  userEvent.type(searchInput, 'a');
   await waitFor(() => {
     expect(queryByText('Albania')).toBeVisible();
     expect(queryByText('Algeria')).toBeVisible();
     expect(queryByText('Armenia')).toBeVisible();
   });
 
-  userEvent.type(getByRole('textbox'), 'l');
+  userEvent.type(searchInput, 'l');
   await waitFor(() => {
     expect(queryByText('Albania')).toBeVisible();
     expect(queryByText('Algeria')).toBeVisible();
     expect(queryByText('Armenia')).toBeNull();
   });
 
-  userEvent.type(getByRole('textbox'), 'b');
+  userEvent.type(searchInput, 'b');
   await waitFor(() => {
     expect(queryByText('Albania')).toBeVisible();
     expect(queryByText('Algeria')).toBeNull();
   });
 
-  userEvent.clear(getByRole('textbox'));
+  userEvent.clear(searchInput);
   await waitFor(() => {
     expect(queryByText('Albania')).toBeNull();
   });
